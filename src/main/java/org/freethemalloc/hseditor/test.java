@@ -49,7 +49,7 @@ public class test extends javax.swing.JFrame {
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGap(0, 78, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -66,7 +66,7 @@ public class test extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap(375, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(jInternalFrame2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
