@@ -5,6 +5,13 @@
  */
 package org.freethemalloc.hseditor;
 
+import java.awt.Container;
+import java.awt.Rectangle;
+import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
+import javax.swing.JInternalFrame.JDesktopIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Harshana
@@ -16,6 +23,20 @@ public class test extends javax.swing.JFrame {
      */
     public test() {
         initComponents();
+        removeIconFor(jInternalFrame3);
+        removeIconFor(jInternalFrame2);
+        //JInternalFrame.JDesktopIcon icon = new JInternalFrame.JDesktopIcon(jInternalFrame3);
+        //jInternalFrame3.setDesktopIcon(new ImageIcon(this.getClass().getResource("images/image1.ico")));
+    }
+
+    protected void removeIconFor(JInternalFrame frame) {
+        JDesktopIcon icon = frame.getDesktopIcon();
+        Container c = icon.getParent();
+        if (c != null && icon != null) {
+            Rectangle b = icon.getBounds();
+            c.remove(icon);
+            c.repaint(b.x, b.y, b.width, b.height);
+        }
     }
 
     /**
@@ -37,6 +58,9 @@ public class test extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
+        jDesktopPane1.setAutoscrolls(true);
+        jDesktopPane1.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
+
         jInternalFrame2.setClosable(true);
         jInternalFrame2.setIconifiable(true);
         jInternalFrame2.setTitle("niji");
@@ -50,13 +74,30 @@ public class test extends javax.swing.JFrame {
         );
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 86, Short.MAX_VALUE)
+            .addGap(0, 98, Short.MAX_VALUE)
         );
 
         jInternalFrame3.setClosable(true);
         jInternalFrame3.setIconifiable(true);
         jInternalFrame3.setTitle("niji");
         jInternalFrame3.setVisible(true);
+        jInternalFrame3.addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+                jInternalFrame3InternalFrameIconified(evt);
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout jInternalFrame3Layout = new javax.swing.GroupLayout(jInternalFrame3.getContentPane());
         jInternalFrame3.getContentPane().setLayout(jInternalFrame3Layout);
@@ -145,6 +186,10 @@ public class test extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jInternalFrame3InternalFrameIconified(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_jInternalFrame3InternalFrameIconified
+        JOptionPane.showMessageDialog(rootPane, "Hello");
+    }//GEN-LAST:event_jInternalFrame3InternalFrameIconified
 
     /**
      * @param args the command line arguments
