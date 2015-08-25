@@ -5,6 +5,7 @@
  */
 package org.freethemalloc.hseditor;
 
+import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
@@ -41,6 +42,7 @@ public class HsEditor extends javax.swing.JFrame {
         editorPanel.setLayout(new GridLayout(1, 1));
         editorPanel.add(sp);
         editorPanel.revalidate();
+        com.sun.awt.AWTUtilities.setWindowOpacity(this, 0.95f);
 
     }
 
@@ -81,6 +83,7 @@ public class HsEditor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -205,7 +208,7 @@ public class HsEditor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
